@@ -11,7 +11,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "commander": "^8.2.0"
+    "commander": "^8.2.0",
+    "shelljs": "^0.8.4",
+    "src": "link:./src"
   },
   "private": true,
   "license": "Apache-2.0",
