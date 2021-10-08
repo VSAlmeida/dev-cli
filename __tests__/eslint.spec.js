@@ -23,20 +23,16 @@ describe('the "dev eslint" should', () => {
     );
   });
 
-  it('print the help command when the "-h" option is provided', () => {
-    const result = shell.exec('dev eslint -h', { silent: true });
+  it('print the help command when the option "-h" or "-help" is provided', () => {
+    const options = ['--help', '-h'];
 
-    expect(result).toEqual(
-      expect.stringContaining('Usage: dev eslint [options]')
-    );
-  });
+    options.forEach((option) => {
+      const result = shell.exec(`dev eslint ${option}`, { silent: true });
 
-  it('print the help command when the "--help" option is provided', () => {
-    const result = shell.exec('dev eslint --help', { silent: true });
-
-    expect(result).toEqual(
-      expect.stringContaining('Usage: dev eslint [options]')
-    );
+      expect(result).toEqual(
+        expect.stringContaining('Usage: dev eslint [options]')
+      );
+    });
   });
 
   it('print an error message when the option "-i" or "--init" is provided in a dir without package.json', () => {
